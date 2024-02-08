@@ -144,7 +144,7 @@
 
         // Flask 서버에 POST 요청 보내기 예시
         $.ajax({
-          url: "http://localhost:5000/summarize", // Flask 서버 주소
+          url: "http://127.0.0.1:5000/summarize", // Flask 서버 주소
           method: "POST",
           contentType: "application/json",
           data: JSON.stringify({ text: inputText }), // 요약할 텍스트를 전송
@@ -163,14 +163,15 @@
         var inputText = $("#inputText").val();
         var question = $("#questionInput").val();
         // 여기에서 질문에 대한 답변 알고리즘을 적용하거나 API를 호출하여 답변을 가져온다.
-        var answer = "여기에 답변이 들어갑니다."; // 수정 필요
+        var answer = "답변을 준비하는 중 입니다.."; // 수정 필요
 
         // 답변을 출력란에 표시
         $("#qaOutputText").text(answer);
-
+        
+        // console.log(inputText, question);
         // 추가: Flask 서버에 POST 요청 보내기 예시 (질문에 대한 답변을 받아오기)
         $.ajax({
-          url: "http://localhost:5000/qa",
+          url: "http://127.0.0.1:5000/qa",
           method: "POST",
           contentType: "application/json",
           data: JSON.stringify({ context:inputText,  question: question }),
